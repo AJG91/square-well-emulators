@@ -1,4 +1,4 @@
-name: square-well-emulator-env
+name: square-well-emulators-env
 
 channels:
   - conda-forge
