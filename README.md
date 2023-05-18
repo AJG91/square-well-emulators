@@ -20,8 +20,8 @@ conda env create -f environment.yml
 
 ## Example
 
-The main class for the KVP-based emulator for scattering is `KVP_emulator_scattering`.
-The code snippet below shows how it should be used:
+The two main classes for the KVP-based emulators are `KVP_emulator_scattering` for scattering and `KVP_emulator_bound` for bound states.
+The code snippet below shows how the scattering emulator should be used:
 ```python
 from emulator_scattering import KVP_emulator_scattering
 
@@ -39,9 +39,9 @@ emu.train(psi_b, V_b, V_exact)
 
 # Predict phase shifts at validation parameter values using the emulator
 emu_pred = emu.prediction(tau_b, nugget) # Emulator
+```
 
-The main class for the KVP-based emulator for bound systems is `KVP_emulator_bound`.
-The code snippet below shows how it should be used:
+The code snippet below shows how the bound state emulator should be used:
 ```python
 from emulator_bound import KVP_emulator_bound
 
