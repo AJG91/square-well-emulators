@@ -13,8 +13,8 @@ It also contains code for the bound-state problem.
 ```bash
 conda env create -f environment.yml
 ```
-* Enter the virtual environment with `conda activate scattering-emulators-env`
-* Install the `emulate_kvp` and `emulate_nvp` packages in the repo root directory using `pip install -e .`
+* Enter the virtual environment with `conda activate square-well-env`
+* Install the `emulate` package in the repo root directory using `pip install -e .`
   (you only need the `-e` option if you intend to edit the source code in `emulate/`).
 
 

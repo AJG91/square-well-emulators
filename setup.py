@@ -8,7 +8,7 @@ setup(
     packages=find_packages(where='emulate'),
     package_dir={'': 'emulate'},
     py_modules=[splitext(basename(path))[0] for path in glob('emulate/*.py')],
-    description='Uses KVP and NVP emulators to make predictions for SMS chiral interaction',
+    description='Uses the KVP emulator to make predictions for a square well interaction',
     author='Alberto J. Garcia',
     author_email='garcia.823@osu.edu',
     zip_safe=False
