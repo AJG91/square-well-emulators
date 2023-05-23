@@ -125,8 +125,6 @@ def compute_error(
         return abs(A - B)
     else:
         raise ValueError('Check error input!')
-        
-        fig, ax = plt.subplots(1, 2, figsize=(16, 5))
 
 def plot_scattering_wf(ps, psi_exact, psi_var, psi_b, V):
     fig, ax = plt.subplots(1, 2, figsize=(16, 5))
@@ -148,17 +146,18 @@ def plot_scattering_wf(ps, psi_exact, psi_var, psi_b, V):
     ax[0].set_xlabel(r"$r$ [fm]", fontsize=20)
     ax[0].set_ylabel(r"$u(r)$ [fm]", fontsize=20)
     ax[0].tick_params(axis='both', which='major', labelsize=20)
-    ax[0].legend(bbox_to_anchor=(0.25, 1), loc="upper left", fontsize=20)
+    ax[0].legend(bbox_to_anchor=(0.6, 0.5), loc="upper left", fontsize=20)
 
     ax[1].semilogy(ps, compute_error(psi_exact, psi_var, "Rel."), 
                    color='red', label=r'Std.', lw=2)
     ax[1].set_xlim(ps[0], ps[-1])
+    ax[1].set_ylim(1e-14, 1e2)
     ax[1].tick_params(axis='both', which='major', labelsize=20)
     ax[1].set_xlabel(r"$r$ [fm]", fontsize=20)
     ax[1].set_ylabel(r"Rel. Error", fontsize=20)
 
     fig.tight_layout()
-    fig.savefig("square_well_wfs_emulator_scattering.png", bbox_inches="tight")
+    fig.savefig("plots/square_well_wfs_emulator_scattering.png", bbox_inches="tight")
     
     return None
 
@@ -170,10 +169,10 @@ def plot_bound_results(V0_pred, V0_b, E_b, E_sim, E_emu):
 
         for j in range(0, i + 1):
             ax1.plot(V0_b[j], E_b[j], marker='*', 
-                     color='green', markersize=12, linestyle="none")
+                     color='green', markersize=16, linestyle="none")
 
         ax1.plot([], [], label=basis_label, marker='*', 
-                 color='green', markersize=12, linestyle="none")
+                 color='green', markersize=16, linestyle="none")
         ax1.set_xlabel(r'$V_0$ [MeV]', fontsize=20)
         ax1.set_ylabel(r'$E_0$ [MeV]', fontsize=20)
         ax1.tick_params(axis='both', which='major', labelsize=20)
@@ -184,11 +183,10 @@ def plot_bound_results(V0_pred, V0_b, E_b, E_sim, E_emu):
         ax2.set_ylim(1e-15, 1e2)
         ax2.tick_params(axis='both', which='major', labelsize=20)
         ax2.set_xlabel(r'$V_0$ [MeV]', fontsize=20)
-        ax2.set_ylabel(r'Error', fontsize=20)
-        ax2.legend(loc='upper right', fontsize=20)
+        ax2.set_ylabel(r'Rel. Error', fontsize=20)
 
         fig.tight_layout()
-        fig.savefig("square_well_wfs_emulator_bound_" + str(i) + ".png", bbox_inches="tight")
+        fig.savefig("plots/square_well_wfs_emulator_bound_" + str(i) + ".png", bbox_inches="tight")
         
     return None
 
